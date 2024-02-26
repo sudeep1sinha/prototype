@@ -1,0 +1,52 @@
+media/
+static/
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Caches
+*.idea/
+*.vscode/
+*.pyc
+*.pyo
+
+# Logs
+*.log
+
+# Virtual environment
+venv/
+env/
+.env/
+
+# Database
+db.sqlite3
+
+# Static files
+staticfiles/
+
+# Media files
+media/
+
+# Compiled Python files
+*.pyc
+
+# macOS
+.DS_Store
+
+# Byte-compiled files
+*.pyc
+
+# Dependency directories
+env/
+node_modules/
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
