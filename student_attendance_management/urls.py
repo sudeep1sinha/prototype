@@ -17,18 +17,13 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from django.contrib.auth import views as auth_views
-from student_management_app import views
 from django.urls import path, include
 
 
-from student_management_app import models
 urlpatterns = [
     
-    path('login/',views.loginpage),
     path('admin/',admin.site.urls),
-    path('register/',views.registerpage),
-    path('user/',include('student_management_app.urls')),
+    path('',include('student_management_app.urls')),
     
     
 

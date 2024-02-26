@@ -85,8 +85,8 @@ DATABASES = {
        ## 'NAME': BASE_DIR / 'db.sqlite3',
        'ENGINE':'django.db.backends.mysql',
        'NAME':'student_attendance_management',
-       'USER':'student_attendance_management',
-       'PASSWORD':'password1234',
+       'USER':'root',
+       'PASSWORD':'root',
        'HOST':'localhost',
        'PORT':'3306'
     }

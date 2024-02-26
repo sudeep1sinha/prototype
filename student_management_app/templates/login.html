@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta name="keywords" content="Student Attendance Management System">
-    <link href="{% static 'registration/font-awesome.min.css' %}" rel="stylesheet">
-    <link href="{% static 'registration/login_style.css' %}" rel='stylesheet' type='text/css' media="all">
     <link href="//fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
     <style>
@@ -71,7 +69,7 @@
     <div class="container">
         <h1 class="title">Login</h1>
         <div class="login-form">
-            <form action="/login/" method="post">
+            <form action="/login/" method="POST">
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="exampleInputEmail1" class="form-label">Username</label>

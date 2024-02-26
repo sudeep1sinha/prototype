@@ -4,43 +4,44 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
-#from .models import UserProfile
+# from .models import UserProfile
+from django.shortcuts import redirect, render
 
 from django.contrib.auth.forms import AuthenticationForm
 
-from django.contrib.auth.forms import User
+from django.contrib.auth.models import User
 
 
-#from student_management_app.EmailBackEnd import EmailBackEnd
+# from student_management_app.EmailBackEnd import EmailBackEnd
 
-from django.shortcuts import render
 
 # Create your views here.
 def loginpage(request):
-    return render(request,"login.html")
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user:
+            login(request, user)
+            return redirect('/iflogin/')
+        else:
+            print('invalid credentials')
+    else:
+        return render(request, "login.html")
+
 
 def registerpage(request):
-    return render(request,"register.html")  
-
-
-
-
-def user_register(request):
     if request.method == 'POST':
-        username = request.POST.get['username']
-        password = request.POST.get['password']
-        user=User.objects.create(username=username, password=password)
+        username = request.POST['username']
+        password = request.POST['password']
+        user = User.objects.create_user(
+            username=username, password=password)
 
-        user.set_password(password)
         user.save()
-        return redirect('/register/')
-    return render(request, "register.html")
-
-    
-def user_login(request):
-    if request.method=='POST':
-        username=request.POST.get['username']
-        password=request.POST.get['password']
-        user=authenticate(request,username=username,password=password)
         return redirect('/login/')
-    return render(request,'student_management_app/login.html')
+    else:
+        return render(request, "register.html")
+
+
+def iflogin(request):
+    return render(request, "iflogin.html")
